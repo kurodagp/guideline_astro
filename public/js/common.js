@@ -36,7 +36,7 @@ function userAgentIE() {
 function spriteSvg() {
   $.ajax({
     type: 'get',
-    url: './public/images/sprite.svg'
+    url: '/guideline_astro/images/sprite.svg'
   }).done(function(data) {
     var svg = $(data).find('svg');
     $('body').prepend(svg);
