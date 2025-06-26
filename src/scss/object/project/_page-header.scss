@@ -1,0 +1,77 @@
+@charset 'UTF-8';
+@use '../../foundation/_settings.scss' as *;
+
+.p-page-header {
+  background-color: #000;
+  color: #fff;
+  
+  &__inner {
+    position: relative;
+  }
+  
+  &__breadcrumb {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 1.3rem;
+    line-height: 1;
+
+    @include smMax {
+      display: none;
+    }
+  }
+  
+  &__breadcrumb li {
+    float: left;
+    position: relative;
+  }
+  
+  &__breadcrumb li + li {
+    padding: 0 0 0 15px;
+    margin: 0 0 0 10px;
+  }
+
+  &__breadcrumb li + li:before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    transform: rotate(45deg) translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: -4px;
+  }
+
+  &__breadcrumb li a:hover {
+    @include smMin {
+      text-decoration: underline;
+    }
+  }
+  
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include smMin {
+      height: 300px;
+    }
+
+    @include smMax {
+      height: 150px;
+    }
+  }
+
+  &__ttl {
+    font-weight: 700;
+    @include smMin {
+      font-size: 5rem;
+    }
+
+    @include smMax {
+      font-size: 3rem;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@charset "utf-8";
+@use "../../foundation/_settings.scss" as *;
+
+//------------------------------------------------------------------------------
+//
+//	.p-news-list
+//  
+//------------------------------------------------------------------------------
+.p-news-list {
+  &__items {
+    @include smMax {
+      margin-top: -15px;
+    }
+  }
+  &__item {
+    border-bottom: 1px solid var(--color-border);
+  }
+  &__block {
+    padding: 15px 10px;
+    @include smMin {
+      display: flex;
+    }
+  }
+  &__time {
+    color: #777;
+    @include smMin {
+      width: 100px;
+    }
+    @include smMax {
+      display: block;
+    }
+  }
+}
+

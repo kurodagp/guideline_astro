@@ -1,0 +1,300 @@
+@charset 'UTF-8';
+@use '../foundation/_settings.scss' as *;
+
+//==========================================================================
+//_header.scss
+//==========================================================================
+
+//-----------------------------------------------------------------
+//.l-header
+//-----------------------------------------------------------------
+
+.l-header {
+  background: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9000;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include smMax {
+      height: 60px;
+      background: #fff;
+      z-index: 8500;
+      position: relative;
+    }
+  }
+  &__bg {
+    @include smMin {
+      display: none;
+    }
+    @include smMax {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 8000;
+      background: rgba(0,0,0,0.7);
+      visibility: hidden;
+      &.is-open {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.l-header-logo {
+  &__link {
+    display: flex;
+    align-items: center;
+    img {
+      width: auto;
+      height: 34px;
+    }
+  }
+  &__txt {
+    display: inline-block;
+    padding: 0 0 0 1em;
+    font-weight: 700;
+    font-size: 2rem;
+    @include smMax {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.l-header-menu {
+  @include smMin {
+    display: none;
+  }
+  @include smMax {
+    color: transparent;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60px;
+    z-index: 9001;
+    background: #000;
+    outline: none;
+    span {
+      display: block;
+      background: #fff;
+      width: 24px;
+      height: 2px;
+      position: absolute;
+      left: 50%;
+      margin: -1px 0 0 -12px;
+      top: 50%;
+      transition: background-color 100ms;
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+        background: #fff;
+        width: 24px;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        transition: transform 200ms, top 200ms;
+      }
+      &:before {
+        top: -8px;
+        transform: rotate(0deg);
+      }
+      &:after {
+        top: 8px;
+        transform: rotate(0deg);
+      }
+    }
+    &.is-open {
+      span {
+        background: #000;
+        &:before,
+        &:after {
+          top: 0;
+        }
+        &:before {
+          transform: rotate(225deg)
+        }
+        &:after {
+          transform: rotate(-225deg)
+        }
+      }
+    }
+  }
+}
+
+.l-header-nav {
+  @include smMin {
+    display: block;
+  }
+  @include smMax {
+    visibility: hidden;
+    position: fixed;
+    width: 100%;
+    max-width: 320px;
+    min-width: 320px;
+    height: calc(100% - 60px);
+    background: #fff;
+    top: 60px;
+    right: 0;
+    z-index: 9000;
+    transform: translateX(100%);
+    @include transition;
+  }
+  &__inner {
+    @include smMin {
+      display: flex;
+      align-items: center;
+    }
+    @include smMax {
+      position: relative;
+      height: 100%;
+      overflow: auto;
+      padding: 0 0 60px !important;
+    }
+  }
+  &__items {
+    @include smMin {
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    @include smMax {
+      border-top: 1px solid var(--color-border);
+    }
+  }
+  &__item {
+    @include smMax {
+      border-bottom: 1px solid var(--color-border);
+    }
+  }
+  &__link {
+    cursor: pointer;
+    position: relative;
+    font-weight: 700;
+    @include smMin {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+      font-size: 1.6rem;
+      padding: 0 13px;
+    }
+    @include smMax {
+      display: block;
+      padding: 20px 15px;
+    }
+    @include hover {
+      background: #000;
+      color: #fff;
+    }
+  }
+  &__lang {
+    display: flex;
+    justify-content: center;
+    @include smMin {
+      margin-left: 50px;
+    }
+    @include smMax {
+      margin-top: 30px;
+    }
+    a {
+      display: block;
+      padding: 0 15px;
+      height: 30px;
+      line-height: 25px;
+      font-size: 1.4rem;
+      cursor: pointer;
+
+      &:nth-child(n + 2) {
+        margin-left: 10px;
+      }
+    }
+  }
+  &.is-open {
+    @include smMax {
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+}
+.l-page[data-lang-state="ja"] .l-header-nav__lang-ja,
+.l-page[data-lang-state="vn"] .l-header-nav__lang-vn {
+  background: #000;
+  color: #fff;
+}
+
+.l-header-nav-drop {
+  text-align: left;
+  @include smMin {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 10px 0;
+    visibility: hidden;
+    opacity: 0;
+    @include transition;
+  }
+  @include smMax {
+    padding: 0 0 20px 30px;
+  }
+  &__inner {
+    @include smMax {
+      padding: 0 !important;
+    }
+  }
+  &__items {
+    @include smMin {
+      display: flex;
+      justify-content: space-between;
+      border-left: 1px solid var(--color-border);
+    }
+  }
+  &__item {
+    @include smMin {
+      width: 100%;
+      border-right: 1px  solid var(--color-border);
+    }
+    &:nth-child(n + 2) {
+      @include smMax {
+        margin-top: 15px;
+      }
+    }
+  }
+  &__link {
+    @include smMin {
+      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+    }
+  }
+}
+
+.is-drop-nav-active {
+   @include smMin {
+    .l-header-nav-drop {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.page-regulation .l-header-nav__item--regulation .l-header-nav__link,
+.page-template .l-header-nav__item--template .l-header-nav__link {
+  background: #000;
+  color: #fff;
+}

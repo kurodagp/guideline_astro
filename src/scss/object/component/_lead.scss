@@ -1,0 +1,49 @@
+@charset "utf-8";
+@use "../../foundation/_settings.scss" as *;
+
+//==========================================================================
+//_lead.scss
+//==========================================================================
+
+//-----------------------------------------------------------------
+//.c-lead
+//-----------------------------------------------------------------
+.c-lead {
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  @include mdMax {
+    font-size: 1.4rem;
+  }
+  @include smMax {
+    text-align: left;
+  }
+  &.c-lead--01 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    @include mdMax {
+      font-size: 2.1rem;
+      margin-bottom: 20px;
+    }
+  }
+  &.c-lead--02 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    @include mdMax {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+@charset "utf-8";
+@use "../foundation/_settings.scss" as *;
+
+.l-container {
+  @include smMin {
+    padding: 100px 0;
+  }
+  @include smMax {
+    padding: 50px 0;
+  }
+  &:last-child {
+    @include smMin {
+      padding-bottom: 150px;
+    }
+    @include smMax {
+      padding-bottom: 80px;
+    }
+  }
+  &:nth-child(odd) {
+    background: var(--color-gray01);
+  }
+  &.l-container--gray {
+    background: var(--color-gray01);
+  }
+}
+
+

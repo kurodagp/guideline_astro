@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+@use "foundation/_font.scss";
+@use "foundation/_default.scss";
+@use "foundation/_base.scss";
+
+@use "layout/_page.scss";
+@use "layout/_header.scss";
+@use "layout/_footer.scss";
+@use "layout/_main.scss";
+@use "layout/_container.scss";
+@use "layout/_inner.scss";
+
+@use "object/component/_btn.scss";
+@use "object/component/_card.scss";
+@use "object/component/_form.scss";
+@use "object/component/_ico.scss";
+@use "object/component/_lead.scss";
+@use "object/component/_list.scss";
+@use "object/component/_media.scss";
+@use "object/component/_sect.scss";
+@use "object/component/_table.scss";
+@use "object/component/_ttl.scss";
+
+@use "object/project/_anchor-link.scss";
+@use "object/project/_breadcrumb.scss";
+@use "object/project/_news-list.scss";
+@use "object/project/_page-header.scss";
+
+@use "object/utility/_utility.scss";
+
+.l-page[data-lang-state="ja"] [data-lang="vn"] {
+  display: none !important;
+}
+.l-page[data-lang-state="vn"] [data-lang="ja"] {
+  display: none !important;
+}
+
+.l-main pre.prettyprint {
+  font-family: var(--font-ja);
+  display: block;
+  width: auto;
+  margin: 10px 0 0;
+  padding: 20px;
+  word-wrap: break-word;
+  word-break: break-all;
+  color: #fff;
+  border-radius: 4px;
+  background-color: #333;
+  .kwd {
+    color: #fff;
+  }
+}

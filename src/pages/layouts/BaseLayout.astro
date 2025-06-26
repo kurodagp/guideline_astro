@@ -1,0 +1,26 @@
+---
+const { pageTitle, pageDescription } = Astro.props;
+---
+
+<!DOCTYPE HTML>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<!--HEAD START-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="noindex">
+<title>{pageTitle}</title>
+<meta name="description" content={pageDescription}>
+
+<script is:inline src="./public/vendor/jquery.min.js"></script>
+<script is:inline src="./public/vendor/picturefill.js"></script>
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script is:inline src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sunburst"></script>
+<script is:inline src="./public/js/common.js"></script>
+
+</head>
+<body>
+  <slot />
+</body>
+</html>

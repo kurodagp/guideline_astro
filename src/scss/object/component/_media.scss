@@ -1,0 +1,48 @@
+@charset "utf-8";
+@use "../../foundation/_settings.scss" as *;
+
+//==========================================================================
+//_media.scss
+//==========================================================================
+
+//-----------------------------------------------------------------
+//.c-media
+//-----------------------------------------------------------------
+.c-media {
+  @include smMin {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @include smMax {
+    > * + * {
+      margin-top: 20px;
+    }
+  }
+  .c-media__img {
+    @include smMin {
+      width: 50%;
+    }
+  }
+  .c-media__body {
+    @include smMin {
+      width: 50%;
+      padding-left: 40px;
+    }
+  }
+}
+
+.c-media--reverse {
+  @include smMin {
+    flex-flow: row-reverse;
+  }
+  .c-media__body {
+    @include smMin {
+      padding-right: 40px;
+    }
+  }
+}
+
+
+
+
+

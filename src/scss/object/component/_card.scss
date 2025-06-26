@@ -1,0 +1,72 @@
+@charset "utf-8";
+@use "../../foundation/_settings.scss" as *;
+
+//==========================================================================
+//_card.scss
+//==========================================================================
+
+//-----------------------------------------------------------------
+//.c-card
+//-----------------------------------------------------------------
+.c-card {
+  .c-card__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: -30px 0 0;
+  }
+  .c-card__item {
+    width: 100%;
+    margin: 30px 0 0;
+  }
+  &.c-card--col2 {
+    .c-card__items {
+      @include smMin {
+        margin: -30px -15px 0;
+      }
+    }
+    .c-card__item {
+      @include smMin {
+        width: calc((100% / 2) - 30px);
+        margin: 30px 15px 0;
+      }
+    }
+  }
+  &.c-card--col3 {
+    .c-card__items {
+      @include smMin {
+        margin: -30px -15px 0;
+      }
+    }
+    .c-card__item {
+      @include smMin {
+        width: calc((100% / 3) - 30px);
+        margin: 30px 15px 0;
+      }
+    }
+  }
+  &.c-card--col4 {
+    .c-card__items {
+      @include smMin {
+        margin: -30px -15px 0;
+      }
+    }
+    .c-card__item {
+      @include smMin {
+        width: calc((100% / 2) - 30px);
+        margin: 30px 15px 0;
+      }
+      @include mdMin {
+        width: calc((100% / 4) - 30px);
+        margin: 30px 15px 0;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

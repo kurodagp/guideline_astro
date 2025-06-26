@@ -1,0 +1,96 @@
+---
+import '../scss/style.scss';
+import BaseLayout from './layouts/BaseLayout.astro';
+import Header from './components/Header.astro';
+import Footer from './components/Footer.astro';
+
+---
+
+<BaseLayout pageTitle="REGULATION | CODING GUIDELINES" pageDescription="GPオンラインのコーディングガイドラインです。">
+	<div class="l-page page-top" data-lang-state="ja">
+
+    <Header />
+
+    <main class="l-main" role="main">
+    
+    <div class="p-page-header">
+      <div class="p-page-header__inner l-inner">
+        <div class="p-page-header__box">
+          <h1 class="p-page-header__ttl">TEMPLATE</h1>
+        </div>
+      </div>
+    </div>
+    <!-- /.p-page-header -->
+
+    <div class="l-container">
+      <div class="l-inner">
+        <h2 class="c-ttl c-ttl--01">
+          <span>テンプレートについて</span>
+        </h2>
+        <p>コーディングのためのテンプレートの一覧になります。</p>
+        <div class="p-anchor-link u-mt-20">
+          <ul>
+            <li>
+              <a class="c-btn c-btn--general c-btn--anker js-anker" href="#01">
+                <span class="c-btn__txt">Dart Sassテンプレート</span>
+                <i class="c-btn__ico c-ico c-ico--arrow01"><svg><use xlink:href="#ico-arrow01"></use></svg></i>
+              </a>
+            </li>
+            <li>
+              <a class="c-btn c-btn--general c-btn--anker js-anker" href="#02">
+                <span class="c-btn__txt">webpackテンプレート</span>
+                <i class="c-btn__ico c-ico c-ico--arrow01"><svg><use xlink:href="#ico-arrow01"></use></svg></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.p-anchor-link -->
+      </div>
+    </div>
+    
+    <div class="l-container">
+      <div class="l-inner">
+        <section id="01" class="c-sect c-sect--md">
+          <h2 class="c-ttl c-ttl--01">
+          <span>Dart Sass コンパイルテンプレート</span>
+        </h2>
+          <p>Dart Sassのコンパイルとローカルサーバーの自動機能のついた環境のテンプレートです。<br>npm sctiptsを利用しています。</p>
+          <pre class="prettyprint">
+▼git
+https://gpinternal.backlog.jp/git/CODING_TEMPLATE/dart-sass-template.git<br>
+            
+▼Operation confirmed environment
+【Node.js Version】
+Node.js v18.13.0 以上
+【npm Version】
+npm v8.19.3 以上
+            </pre>
+            <p class="u-mt-20"><br><a href="./dart-sass.html"> Dart Sassテンプレートについて詳しくはこちら</a></p>
+        </section>
+        <section id="02" class="c-sect c-sect--md">
+          <h2 class="c-ttl c-ttl--01">
+          <span>webpack コンパイルテンプレート</span>
+        </h2>
+          <p>JSのバンドルのみに機能を絞った最小限のWebpackテンプレートです。<br>
+            プロジェクトメンバー全員がWebpackをインストールする必要はなく、JSのバンドルが必要なメンバーのみインストールし作業を行うことが可能です。</p>
+          <pre class="prettyprint">
+▼git
+https://gpinternal.backlog.jp/git/CODING_TEMPLATE/webpack-template.git<br>
+            
+▼Operation confirmed environment
+【Node.js Version】
+Node.js　v20.17.0 以上
+【npm Version】
+npm　10.8.2 以上
+            </pre>
+            <p class="u-mt-20"><br><a href="./webpack.html">webpackテンプレートについて詳しくはこちら</a></p>
+        </section>
+      </div>
+    </div>
+    
+  </main>
+
+    <Footer />
+  </div>
+
+</BaseLayout>
