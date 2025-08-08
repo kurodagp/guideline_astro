@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+@use "foundation/_font.scss";
+@use "foundation/_default.scss";
+@use "foundation/_base.scss";
+
+@use "layout/_page.scss";
+@use "layout/_header.scss";
+@use "layout/_footer.scss";
+@use "layout/_main.scss";
+@use "layout/_container.scss";
+@use "layout/_inner.scss";
+
+@use "object/component/_btn.scss";
+@use "object/component/_card.scss";
+@use "object/component/_form.scss";
+@use "object/component/_ico.scss";
+@use "object/component/_lead.scss";
+@use "object/component/_list.scss";
+@use "object/component/_media.scss";
+@use "object/component/_sect.scss";
+@use "object/component/_table.scss";
+@use "object/component/_ttl.scss";
+
+@use "object/project/_anchor-link.scss";
+@use "object/project/_breadcrumb.scss";
+@use "object/project/_news-list.scss";
+@use "object/project/_page-header.scss";
+
+@use "object/utility/_utility.scss";
+
+.page-md {
+  
+  h2 {
+    text-align: left;
+    font-weight: 700;
+    line-height: 1.5;
+    padding-bottom: 10px;
+    font-size: 3rem;
+    border-bottom: 2px solid #000;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    scroll-margin-top: 80px; // アンカーリンク時のオフセット
+  }
+  
+  h3 {
+    font-size: 2rem;
+    text-align: left;
+    font-weight: 700;
+    padding: 0 0 0 10px;
+    line-height: 1.3;
+    border-left: 4px solid #000;
+    scroll-margin-top: 80px; // アンカーリンク時のオフセット
+    margin-top: 45px; 
+    margin-bottom: 30px;
+  }
+  
+  h4 {
+    font-size: 1.7rem;
+     margin-top: 30px;
+    margin-bottom: 5px;
+    scroll-margin-top: 80px; // アンカーリンク時のオフセット
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #bebfc2;
+    margin: 40px 0;
+  }
+  a {
+    text-decoration: underline;
+  }
+}

@@ -1,5 +1,8 @@
 ---
+import '../../scss/style_md.scss';
 const { pageTitle, pageDescription } = Astro.props;
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!DOCTYPE HTML>
@@ -21,6 +24,8 @@ const { pageTitle, pageDescription } = Astro.props;
 
 </head>
 <body>
+  <Header />
   <slot />
+  <Footer />
 </body>
 </html>

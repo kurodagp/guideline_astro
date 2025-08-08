@@ -1,0 +1,58 @@
+---
+import { unified } from 'unified';
+import rehypeParse from 'rehype-parse';
+import { toString } from 'hast-util-to-string';
+import { selectAll } from 'hast-util-select';
+
+interface Props {
+  content: string;
+}
+
+const { content }: Props = Astro.props;
+
+// 早期リターン
+if (!content) {
+  console.warn('TableOfContents: content is empty');
+}
+
+let tocItems: Array<{ text: string; id: string }> = [];
+
+try {
+  const tree = unified()
+    .use(rehypeParse, { fragment: true })
+    .parse(content);
+
+  const headings = selectAll('h2', tree);
+
+  tocItems = headings.map(h => {
+    const text = toString(h);
+    // idが無い場合は自動生成
+    const id = h.properties?.id || text.toLowerCase().replace(/[^a-z0-9\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]/g, '-');
+    return { text, id };
+  }).filter(item => item.text.trim()); // 空のテキストを除外
+
+} catch (error) {
+  console.error('TOC generation error:', error);
+}
+---
+
+{tocItems.length > 0 && (
+  <nav aria-label="目次">
+    <ul role="list">
+      {tocItems.map(item => (
+        <li key={item.id}>
+          <a
+            class="c-btn c-btn--general c-btn--anker js-anker"
+            href={`#${item.id}`}
+            aria-describedby={`toc-${item.id}`}
+          >
+            <span class="c-btn__txt">{item.text}</span>
+            <i class="c-btn__ico c-ico c-ico--arrow01" aria-hidden="true">
+              <svg><use href="#ico-arrow01"></use></svg>
+            </i>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}

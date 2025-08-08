@@ -1,0 +1,40 @@
+---
+import { unified } from 'unified';
+import rehypeParse from 'rehype-parse';
+import rehypeToc from '@jsdevtools/rehype-toc';
+import rehypeStringify from 'rehype-stringify';
+import { parse } from 'node-html-parser'; // npm install node-html-parser
+
+const { content } = Astro.props;
+
+let tocHtml = '';
+
+try {
+  const result = await unified()
+    .use(rehypeParse, { fragment: true })
+    .use(rehypeToc, {
+      headings: ['h2'],
+      cssClasses: {
+        toc: 'toc-area',
+        list: 'toc-list',
+        listItem: 'toc-item',
+        link: 'toc-link',
+      },
+    })
+    .use(rehypeStringify)
+    .process(content);
+
+  const root = parse(String(result.value)); // 全文HTMLをパース
+  const tocNav = root.querySelector('.toc-area'); // .toc-area の <nav> を取得
+
+  if (tocNav) {
+    tocHtml = tocNav.toString(); // navだけをHTML文字列として取得
+  }
+} catch (error) {
+  console.error('TableOfContents error:', error);
+}
+---
+
+{tocHtml && (
+  <nav class="toc-wrapper" aria-label="目次" set:html={tocHtml} />
+)}

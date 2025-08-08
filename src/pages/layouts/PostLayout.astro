@@ -1,0 +1,41 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+
+const { frontmatter, compiledContent } = Astro.props;
+// compiledContent() を呼び出してHTMLを取得
+const content = await compiledContent();
+
+---
+<BaseLayout pageTitle={frontmatter.title}>
+  <main class="l-main" role="main">
+    <article class="p-article">
+      <header class="p-article__header">
+        <h1 class="p-article__title">{frontmatter.title}</h1>
+      </header>
+
+      <div class="p-article__content">
+        <div class="page-md">
+          <!-- 目次をここに出力 -->
+          <div class="l-container">
+            <div class="l-inner">
+              <div class="p-anchor-link">
+                <TableOfContents content={content} />
+              </div>
+            </div>
+          </div>
+          <div class="l-container">
+            <div class="l-inner">
+              <div class="l-content">
+                
+
+                <!-- Markdown本文の出力 -->
+                <slot />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>
