@@ -1,0 +1,31 @@
+---
+import '../../scss/style.scss';
+import 'github-markdown-css/github-markdown-light.css';
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout pageTitle="CODING GUIDELINES" pageDescription="GPオンラインのコーディングガイドラインです。">
+  <div class="l-page page-top" data-lang-state="ja">
+
+		<Header />
+
+		<main class="l-main markdown-body" role="main">
+      <div class="l-container">
+        <div class="l-inner">
+          <slot />
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </div>
+
+</BaseLayout>
+
+<style lang="scss">
+  .markdown-body {
+    line-height: 1.85;
+  }
+</style>
