@@ -1,0 +1,53 @@
+---
+const { frontmatter } = Astro.props;
+import '../../scss/style.scss';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!DOCTYPE HTML>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<!--HEAD START-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="noindex">
+<title>{frontmatter.title}</title>
+<meta name="description" content={frontmatter.description}>
+
+<script is:inline src="/guideline_astro/vendor/jquery.min.js"></script>
+<script is:inline src="/guideline_astro/vendor/picturefill.js"></script>
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script is:inline src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sunburst"></script>
+<script is:inline src="/guideline_astro/js/common.js"></script>
+
+</head>
+<body>
+  <div class="l-page page-detail" data-lang-state="ja">
+
+    <Header />
+
+    <main class="l-main" role="main">
+      <div class="p-page-header">
+        <div class="p-page-header__inner l-inner">
+          <div class="p-page-header__box">
+            <h1 class="p-page-header__ttl">{frontmatter.title}</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="l-container">
+        <div class="l-inner">
+
+          <slot />
+          
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+
+  </div>
+</body>
+</html>
