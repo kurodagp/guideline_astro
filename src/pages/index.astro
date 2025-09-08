@@ -1,9 +1,13 @@
 ---
 import BaseLayout from './layouts/BaseLayout.astro';
 
+const pageTitle = "CODING GUIDELINES";
+const pageDescription = "GPオンラインのコーディングガイドラインです。";
+const pageClass = "page-top";
+const isTopPage = true;
 ---
 
-<BaseLayout pageTitle="CODING GUIDELINES" pageDescription="GPオンラインのコーディングガイドラインです。" pageClass="page-top">
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription} pageClass={pageClass} isTopPage={isTopPage}>
 
   <div class="l-container">
     <div class="l-inner">

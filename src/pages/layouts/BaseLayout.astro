@@ -2,8 +2,11 @@
 import '../../scss/style.scss';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PageHeader from '../components/PageHeader.astro';
 
-const { pageTitle, pageDescription, pageClass="" } = Astro.props;
+const { pageTitle, pageDescription, pageClass="", isTopPage = false } = Astro.props;
+
+const metaTitle = isTopPage ? pageTitle : `${pageTitle} | CODING GUIDELINES`;
 ---
 
 <!DOCTYPE HTML>
@@ -14,7 +17,7 @@ const { pageTitle, pageDescription, pageClass="" } = Astro.props;
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <meta name="robots" content="noindex">
-<title>{pageTitle}</title>
+<title>{metaTitle}</title>
 <meta name="description" content={pageDescription}>
 
 <script is:inline src="/guideline_astro/vendor/jquery.min.js"></script>
@@ -30,15 +33,11 @@ const { pageTitle, pageDescription, pageClass="" } = Astro.props;
     <Header />
 
     <main class="l-main" role="main">
-      <div class="p-page-header">
-        <div class="p-page-header__inner l-inner">
-          <div class="p-page-header__box">
-            <h1 class="p-page-header__ttl">{pageTitle}</h1>
-          </div>
-        </div>
-      </div>
+
+      <PageHeader pageTitle={pageTitle} />
 
       <slot />
+      
     </main>
 
     <Footer />
