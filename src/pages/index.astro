@@ -1,131 +1,109 @@
 ---
-import '../scss/style.scss';
 import BaseLayout from './layouts/BaseLayout.astro';
-import Header from './components/Header.astro';
-import Footer from './components/Footer.astro';
 
 ---
 
-<BaseLayout pageTitle="CODING GUIDELINES" pageDescription="GPオンラインのコーディングガイドラインです。">
-	<div class="l-page page-top" data-lang-state="ja">
+<BaseLayout pageTitle="CODING GUIDELINES" pageDescription="GPオンラインのコーディングガイドラインです。" pageClass="page-top">
 
-		<Header />
+  <div class="l-container">
+    <div class="l-inner">
 
-		<main class="l-main" role="main">
+      <section class="c-sect c-sect--lg">
+        <h2 class="c-ttl c-ttl--01">
+          <span>本ガイドラインについて</span>
+        </h2>
+        <p>本ガイドラインは、株式会社ジーピーオンラインがWEBサイト制作を行う際のルールを定めたものです。新規ページの作成や既存ページの修正・更新作業の際に、品質の確保とメンテナンス性の向上を目的としています。<br>また本ガイドラインは、新たなルールが必要な際に検討をし、随時更新を行います。</p>
+      </section>
 
-			<div class="p-page-header">
-				<div class="p-page-header__inner l-inner">
-					<div class="p-page-header__box">
-						<h1 class="p-page-header__ttl">CODING GUIDELINES</h1>
-					</div>
-				</div>
-			</div>
+    </div>
+  </div>
 
-			<div class="l-container">
-				<div class="l-inner">
+  <div class="l-container">
+    <div class="l-inner">
 
-					<section class="c-sect c-sect--lg">
-						<h2 class="c-ttl c-ttl--01">
-							<span>本ガイドラインについて</span>
-						</h2>
-						<p>本ガイドラインは、株式会社ジーピーオンラインがWEBサイト制作を行う際のルールを定めたものです。新規ページの作成や既存ページの修正・更新作業の際に、品質の確保とメンテナンス性の向上を目的としています。<br>また本ガイドラインは、新たなルールが必要な際に検討をし、随時更新を行います。</p>
-					</section>
+      <section class="c-sect c-sect--lg">
+        <h2 class="c-ttl c-ttl--01">
+          <span>更新履歴</span>
+        </h2>
+        <div class="p-news-list">
+          <ul class="p-news-list__itefms">
+            <li class="p-news-list__item">
+              <div class="p-news-list__block">
+                <time class="p-news-list__time" datetime="2024-10-24">2024.11.07</time>
+                <p class="p-news-list__txt">「<a href="index02.html#include">JavaScriptを使用したインクルード</a>」を追加しました。</p>
+              </div>
+            </li>
+            <li class="p-news-list__item">
+              <div class="p-news-list__block">
+                <time class="p-news-list__time" datetime="2024-10-24">2024.10.24</time>
+                <p class="p-news-list__txt">「<a href="index02.html#readme">READMEの設置</a>」を追加しました。</p>
+              </div>
+            </li>
+            <li class="p-news-list__item">
+              <div class="p-news-list__block">
+                <time class="p-news-list__time" datetime="2024-08-29">2024.09.26</time>
+                <p class="p-news-list__txt">「<a href="index03.html#html">HTML</a>」の「webフォントの読み込み」について変更しました。<br>「<a href="index02.html#css">CSS</a>」の「WEBフォントの使用」について変更しました。</p>
+              </div>
+            </li>
+            <li class="p-news-list__item">
+              <div class="p-news-list__block">
+                <time class="p-news-list__time" datetime="2024-08-29">2024.08.29</time>
+                <p class="p-news-list__txt">「<a href="index02.html#head">headタグの基本設定</a>」を追加しました。</p>
+              </div>
+            </li>
+            <li class="p-news-list__item">
+              <div class="p-news-list__block">
+                <time class="p-news-list__time" datetime="2022-09-01">2022.09.01</time>
+                <p class="p-news-list__txt">「<a href="index03.html#js">JavaScript</a>」の「jsファイルの非同期読み込み」を追加しました。</p>
+              </div>
+            </li>
+            <li class="p-news-list__item">
+              <div class="p-news-list__block">
+                <time class="p-news-list__time" datetime="2022-09-01">2022.09.01</time>
+                <p class="p-news-list__txt">「<a href="index03.html#html">HTML</a>」の「webフォントの読み込み」、「OGP」を追加しました。</p>
+              </div>
+            </li>
+            <li class="p-news-list__item">
+              <div class="p-news-list__block">
+                <time class="p-news-list__time" datetime="2022-09-01">2022.09.01</time>
+                <p class="p-news-list__txt">「<a href="index02.html#performance">サイトパフォーマンス</a>」を追加しました。</p>
+              </div>
+            </li>
+            <li class="p-news-list__item">
+              <div class="p-news-list__block">
+                <time class="p-news-list__time" datetime="2022-09-01">2022.09.01</time>
+                <p class="p-news-list__txt">「<a href="index02.html#markup">マークアップ</a>」の「imgタグ」、「altの設定」、「外部リンク」を追加しました。</p>
+              </div>
+            </li>
+            <li class="p-news-list__item">
+              <div class="p-news-list__block">
+                <time class="p-news-list__time" datetime="2021-10-20">2021.10.20</time>
+                <p class="p-news-list__txt">「<a href="index02.html#include">インクルード</a>」の「SSIを使用したインクルード」ついて変更しました。</p>
+              </div>
+            </li>
+            <li class="p-news-list__item">
+              <div class="p-news-list__block">
+                <time class="p-news-list__time" datetime="2021-06-01">2021.06.01</time>
+                <p class="p-news-list__txt">「<a href="index02.html#responsive">レスポンシブコーディング</a>」の「picture要素の使用」について変更しました。</p>
+              </div>
+            </li>
+            <li class="p-news-list__item">
+              <div class="p-news-list__block">
+                <time class="p-news-list__time" datetime="2020-04-01">2020.04.01</time>
+                <p class="p-news-list__txt">コーディングガイドラインをリリースしました。</p>
+              </div>
+            </li>
+            <!--<li class="p-news-list__item">
+            <div class="p-news-list__block">
+              <time class="p-news-list__time" datetime="2019-00-00">2020.00.00</time>
+              <p class="p-news-list__txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            </div>
+          </li>-->
+          </ul>
+        </div>
+      </section>
 
-				</div>
-			</div>
-
-			<div class="l-container">
-				<div class="l-inner">
-
-					<section class="c-sect c-sect--lg">
-						<h2 class="c-ttl c-ttl--01">
-							<span>更新履歴</span>
-						</h2>
-						<div class="p-news-list">
-							<ul class="p-news-list__itefms">
-								<li class="p-news-list__item">
-									<div class="p-news-list__block">
-										<time class="p-news-list__time" datetime="2024-10-24">2024.11.07</time>
-										<p class="p-news-list__txt">「<a href="index02.html#include">JavaScriptを使用したインクルード</a>」を追加しました。</p>
-									</div>
-								</li>
-								<li class="p-news-list__item">
-									<div class="p-news-list__block">
-										<time class="p-news-list__time" datetime="2024-10-24">2024.10.24</time>
-										<p class="p-news-list__txt">「<a href="index02.html#readme">READMEの設置</a>」を追加しました。</p>
-									</div>
-								</li>
-								<li class="p-news-list__item">
-									<div class="p-news-list__block">
-										<time class="p-news-list__time" datetime="2024-08-29">2024.09.26</time>
-										<p class="p-news-list__txt">「<a href="index03.html#html">HTML</a>」の「webフォントの読み込み」について変更しました。<br>「<a href="index02.html#css">CSS</a>」の「WEBフォントの使用」について変更しました。</p>
-									</div>
-								</li>
-								<li class="p-news-list__item">
-									<div class="p-news-list__block">
-										<time class="p-news-list__time" datetime="2024-08-29">2024.08.29</time>
-										<p class="p-news-list__txt">「<a href="index02.html#head">headタグの基本設定</a>」を追加しました。</p>
-									</div>
-								</li>
-								<li class="p-news-list__item">
-									<div class="p-news-list__block">
-										<time class="p-news-list__time" datetime="2022-09-01">2022.09.01</time>
-										<p class="p-news-list__txt">「<a href="index03.html#js">JavaScript</a>」の「jsファイルの非同期読み込み」を追加しました。</p>
-									</div>
-								</li>
-								<li class="p-news-list__item">
-									<div class="p-news-list__block">
-										<time class="p-news-list__time" datetime="2022-09-01">2022.09.01</time>
-										<p class="p-news-list__txt">「<a href="index03.html#html">HTML</a>」の「webフォントの読み込み」、「OGP」を追加しました。</p>
-									</div>
-								</li>
-								<li class="p-news-list__item">
-									<div class="p-news-list__block">
-										<time class="p-news-list__time" datetime="2022-09-01">2022.09.01</time>
-										<p class="p-news-list__txt">「<a href="index02.html#performance">サイトパフォーマンス</a>」を追加しました。</p>
-									</div>
-								</li>
-								<li class="p-news-list__item">
-									<div class="p-news-list__block">
-										<time class="p-news-list__time" datetime="2022-09-01">2022.09.01</time>
-										<p class="p-news-list__txt">「<a href="index02.html#markup">マークアップ</a>」の「imgタグ」、「altの設定」、「外部リンク」を追加しました。</p>
-									</div>
-								</li>
-								<li class="p-news-list__item">
-									<div class="p-news-list__block">
-										<time class="p-news-list__time" datetime="2021-10-20">2021.10.20</time>
-										<p class="p-news-list__txt">「<a href="index02.html#include">インクルード</a>」の「SSIを使用したインクルード」ついて変更しました。</p>
-									</div>
-								</li>
-								<li class="p-news-list__item">
-									<div class="p-news-list__block">
-										<time class="p-news-list__time" datetime="2021-06-01">2021.06.01</time>
-										<p class="p-news-list__txt">「<a href="index02.html#responsive">レスポンシブコーディング</a>」の「picture要素の使用」について変更しました。</p>
-									</div>
-								</li>
-								<li class="p-news-list__item">
-									<div class="p-news-list__block">
-										<time class="p-news-list__time" datetime="2020-04-01">2020.04.01</time>
-										<p class="p-news-list__txt">コーディングガイドラインをリリースしました。</p>
-									</div>
-								</li>
-								<!--<li class="p-news-list__item">
-                <div class="p-news-list__block">
-                  <time class="p-news-list__time" datetime="2019-00-00">2020.00.00</time>
-                  <p class="p-news-list__txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                </div>
-              </li>-->
-							</ul>
-						</div>
-					</section>
-
-				</div>
-			</div>
-
-		</main>
-
-		<Footer />
-
-	</div>
+    </div>
+  </div>
 
 </BaseLayout>
