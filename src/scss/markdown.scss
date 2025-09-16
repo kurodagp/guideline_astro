@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+@use "./foundation/settings" as *;
+@use "./object/component/ttl" as *;
+
+
+.content-markdown {
+
+  h2 {
+    @extend .c-ttl--01;
+  }
+  h3 {
+    @extend .c-ttl--02;
+
+    margin-top: 30px;
+  }
+  h4 {
+    @extend .c-ttl--03;
+
+    margin-top: 20px;
+  }
+
+  hr {
+    margin: 40px 0;
+    border-left: none;
+  }
+
+  pre {
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

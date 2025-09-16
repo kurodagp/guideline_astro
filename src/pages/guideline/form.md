@@ -2,15 +2,18 @@
 title: フォーム
 description: フォームに関するガイドラインのページです
 layout: ../layouts/DetailGuidelineLayout.astro
+category: guideline
 ---
 
 
-## フォーム構造
+## フォーム
 
-### form要素
+### フォーム構造
+
+#### form要素
 インプット要素、送信ボタンは必ずformタグで囲んでください。
 
-### 送信ボタン
+#### 送信ボタン
 フォーム送信ボタンには、button[type="submit"]、または input[type="submit"]を使用してください。aタグやinput[type="button"]、button[type="button"]は例外的な仕様を除き使用しないようにしてください。
 
 ```
@@ -26,9 +29,9 @@ layout: ../layouts/DetailGuidelineLayout.astro
 
 ---
 
-## meta属性
+### meta属性
 
-### name属性
+#### name属性
 各インプット要素には、以下の命名規則に従い、name属性を設定してください。
 
 <div class="c-table">

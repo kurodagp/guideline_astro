@@ -1,0 +1,55 @@
+---
+// mdファイル一覧取得
+const { directory, currentPath = Astro.url.pathname } = Astro.props;
+
+// directoryに応じてパスを変更
+let pages = [];
+// Astro.globはテキストリテラルでないと動作しないため、switch文で対応
+switch (directory) {
+  case "guideline":
+    pages = await Astro.glob("../guideline/*.md");
+    break;
+  case "template":
+    pages = await Astro.glob("../template/*.md");
+    break;
+}
+
+// orderでソート（order指定のない場合は最後に表示）
+const sortedPages = pages.sort((a, b) => {
+  const orderA = a.frontmatter.order !== undefined ? a.frontmatter.order : 999;
+  const orderB = b.frontmatter.order !== undefined ? b.frontmatter.order : 999;
+  return orderA - orderB;
+});
+---
+
+<div class="p-anchor-link">
+  <ul>
+    {
+      sortedPages.map((page) => {
+        const isCurrent = currentPath === page.url;
+        return (
+          <li>
+            <a class={`c-btn c-btn--general ${isCurrent ? "is-current" : ""}`} href={page.url}>
+              <span class="c-btn__txt">{page.frontmatter.title}</span>
+              <i class="c-btn__ico c-ico c-ico--arrow01">
+                <svg>
+                  <use xlink:href="#ico-arrow01" />
+                </svg>
+              </i>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>
+
+<style>
+  .c-btn.is-current {
+    background-color: #000;
+    color: #fff;
+  }
+  .c-btn.is-current .c-btn__ico svg {
+    fill: #fff;
+  }
+</style>

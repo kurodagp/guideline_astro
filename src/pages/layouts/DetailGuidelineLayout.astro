@@ -1,13 +1,26 @@
 ---
+import '../../scss/markdown.scss';
 import BaseLayout from "./BaseLayout.astro";
+import MarkdownNav from "../components/MarkdownNav.astro";
 
 const { frontmatter } = Astro.props;
+
 ---
 
 <BaseLayout pageTitle={frontmatter.title} pageDescription={frontmatter.description} pageClass="page-detail">
   <div class="l-container">
-      <div class="l-inner">
-        <slot />
-      </div>
+    <div class="l-inner">
+      <MarkdownNav directory={frontmatter.category} />
+    </div>
+  </div>
+  <div class="l-container content-markdown">
+    <div class="l-inner">
+      <slot />
+    </div>
+  </div>
+  <div class="l-container">
+    <div class="l-inner">
+      <MarkdownNav directory={frontmatter.category} />
+    </div>
   </div>
 </BaseLayout>
