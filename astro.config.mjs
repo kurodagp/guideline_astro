@@ -18,5 +18,9 @@ export default defineConfig({
   },
   markdown: {
     rehypePlugins: [rehypeSlug],
+    shikiConfig: {
+      theme: "github-dark",  // 好きなテーマ名（"nord", "dracula", "github-light" なども可）
+      wrap: true,            // 長いコードを折り返す場合は true
+    },
   }
 });

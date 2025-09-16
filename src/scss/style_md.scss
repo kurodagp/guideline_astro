@@ -69,4 +69,28 @@
   a {
     text-decoration: underline;
   }
+  pre {
+    padding: 20px;
+    border-radius: 10px;
+  }
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-top: 1px solid var(--color-border);
+      border-right: 1px solid var(--color-border);
+    }
+    
+    th,
+    td {
+      border-bottom: 1px solid var(--color-border);
+      border-left: 1px solid var(--color-border);
+      padding: 15px;
+      vertical-align: middle;
+    }
+    th {
+      background-color: #edeff0;
+      font-weight: 700;
+      text-align: center;
+    }
 }

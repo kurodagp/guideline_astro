@@ -9,10 +9,16 @@ const content = await compiledContent();
 ---
 <BaseLayout pageTitle={frontmatter.title}>
   <main class="l-main" role="main">
+
+    <div class="p-page-header">
+      <div class="p-page-header__inner l-inner">
+        <div class="p-page-header__box">
+          <h1 class="p-page-header__ttl">{frontmatter.title}</h1>
+        </div>
+      </div>
+    </div>
+    
     <article class="p-article">
-      <header class="p-article__header">
-        <h1 class="p-article__title">{frontmatter.title}</h1>
-      </header>
 
       <div class="p-article__content">
         <div class="page-md">
@@ -27,8 +33,6 @@ const content = await compiledContent();
           <div class="l-container">
             <div class="l-inner">
               <div class="l-content">
-                
-
                 <!-- Markdown本文の出力 -->
                 <slot />
               </div>
@@ -38,4 +42,52 @@ const content = await compiledContent();
       </div>
     </article>
   </main>
+
+  <!-- PostLayout専用のスムーススクロール -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      const headerHeight = 60;
+      
+      // ページ読み込み時のハッシュ処理
+      const urlHash = location.hash;
+      if(urlHash) {
+        setTimeout(function(){
+          // URLエンコードされたハッシュをデコード
+          const decodedHash = decodeURIComponent(urlHash);
+          let target = document.querySelector(decodedHash);
+          
+          // デコードしたハッシュで要素が見つからない場合、元のハッシュで再試行
+          if(!target) {
+            target = document.querySelector(urlHash);
+          }
+          
+          if(target) {
+            const position = target.offsetTop - headerHeight - 20;
+            window.scrollTo({
+              top: position,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+      }
+      
+      // クリック時のスムーススクロール
+      document.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href^="#"]');
+        if(!link) return;
+        
+        const href = link.getAttribute('href');
+        const target = document.querySelector(href);
+        
+        if(target) {
+          e.preventDefault();
+          const position = target.offsetTop - headerHeight - 20;
+          window.scrollTo({
+            top: position,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </BaseLayout>

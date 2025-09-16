@@ -117,22 +117,20 @@ function pagetop() {
 function anker() {
   const headerHeight = 60;
   const urlHash = location.hash;
-  if(urlHash) {
-    $('html, body').stop().scrollTop(0);
-    setTimeout(function(){
-      let target = $(urlHash);
-      let position = target.offset().top - headerHeight -20;
-      $('html, body').stop().animate({scrollTop: position}, 10);
-    }, 100);
-  }
-  $('.js-anker[href^="#"]').click(function () {
+  
+  // 修正：すべての#付きアンカーリンクに対応
+  $('a[href^="#"]').click(function () {
     let href = $(this).attr('href');
     let target = $(href == "#" || href == "" ? 'html' : href);
-    let position = target.offset().top - headerHeight - 20;
-    $('html, body').animate({
-      scrollTop: position
-    },500);
-    return false;
+    
+    // target要素が存在する場合のみスクロール実行
+    if(target.length) {
+      let position = target.offset().top - headerHeight - 20;
+      $('html, body').animate({
+        scrollTop: position
+      },500);
+      return false;
+    }
   });
 }
 
