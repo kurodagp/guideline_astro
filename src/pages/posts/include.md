@@ -79,7 +79,7 @@ document.bodyの部分はquerySelectorなどを使用して特定の要素を指
 
 以下の方法は非推奨です。
 
-~~### /assets/include/header.js~~
+### ~~/assets/include/header.js~~
 
 ```javascript
 var header = '' +
@@ -92,7 +92,7 @@ var header = '' +
 document.write(header);
 ```
 
-~~### html~~
+### ~~html~~
 
 ```html
 <body>

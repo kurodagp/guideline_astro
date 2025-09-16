@@ -85,7 +85,7 @@ GoogleドライブURL
 - npm v6.x.x 以上
 
 ### ディレクトリ構成
-```
+
 www/
 ├── html/
 │   └── assets/
@@ -97,10 +97,9 @@ www/
 │               └── xxx.js  # 〇〇
 ├── package.json
 └── webpack.config.js
-```
 
 ### 開発環境構築
-```
+
 # パッケージのインストール
 $ npm install
 
@@ -109,7 +108,6 @@ $ npm run start
 
 # ビルド
 $ npm run build
-```
 
 ## コーディング仕様
 - 〇〇のコーディングガイドラインに沿って制作[url]
