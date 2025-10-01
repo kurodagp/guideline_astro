@@ -1,0 +1,58 @@
+---
+import '../scss/style.scss';
+import BaseLayout from './layouts/BaseLayout.astro';
+import Header from './components/Header.astro';
+import Footer from './components/Footer.astro';
+import NewsList from './components/NewsList.astro';
+import newsItems from '../data/newsItems.json'; // ここでJSONを読み込む
+
+---
+
+<BaseLayout pageTitle="CODING GUIDELINES" pageDescription="GPオンラインのコーディングガイドラインです。">
+	<div class="l-page page-top" data-lang-state="ja">
+
+		<Header />
+
+		<main class="l-main" role="main">
+
+			<div class="p-page-header">
+				<div class="p-page-header__inner l-inner">
+					<div class="p-page-header__box">
+						<h1 class="p-page-header__ttl">CODING GUIDELINES</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="l-container">
+				<div class="l-inner">
+
+					<section class="c-sect c-sect--lg">
+						<h2 class="c-ttl c-ttl--01">
+							<span>本ガイドラインについて</span>
+						</h2>
+						<p>本ガイドラインは、株式会社ジーピーオンラインがWEBサイト制作を行う際のルールを定めたものです。新規ページの作成や既存ページの修正・更新作業の際に、品質の確保とメンテナンス性の向上を目的としています。<br>また本ガイドラインは、新たなルールが必要な際に検討をし、随時更新を行います。</p>
+					</section>
+
+				</div>
+			</div>
+
+			<div class="l-container">
+				<div class="l-inner">
+
+					<section class="c-sect c-sect--lg">
+						<h2 class="c-ttl c-ttl--01">
+							<span>更新履歴</span>
+						</h2>
+						<NewsList items={newsItems} />
+					</section>
+
+				</div>
+			</div>
+
+		</main>
+
+		<Footer />
+
+	</div>
+
+</BaseLayout>
