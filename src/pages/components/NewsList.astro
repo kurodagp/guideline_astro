@@ -4,12 +4,12 @@ interface NewsItem {
   displayDate: string;
   html: string;
 }
-const { items } = Astro.props;
+const { items = [] } = Astro.props;
 ---
 
 <div class="p-news-list">
   <ul class="p-news-list__itefms">
-    {items.map(item => (
+    {items && items.map(item => (
       <li class="p-news-list__item">
         <div class="p-news-list__block">
           <time class="p-news-list__time" datetime={item.date}>{item.displayDate}</time>
